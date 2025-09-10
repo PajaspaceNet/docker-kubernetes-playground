@@ -60,9 +60,27 @@ bez **--rm**
 * Image = samotný stav OS, který můžeš znovu spouštět.<br>
 * Smazání probíhá jen explicitně, jinak všechno zůstává.<br>
 * Takže všechno, co jsi **buildnul a nainstaloval, se neztratí, dokud to nesmažeš ty.** <br>
+
+  ### MAZANI ###
+```
+docker ps   # vylistuj contejnery 
+
+docker stop fedora # STOP bud podle jmena stopni , nebo podle cisla
+docker rm fedora  # smaz bud podle jmena stopni , nebo podle cisla
+```
+
 <br>
 ---- Jinak receno ----<br>
 Image = předloha (neměnná)<br>
 Container = běžící „kopie“ image, kde můžeš experimentovat<br>
 Pokud container ukončíš bez --rm, změny zůstanou uvnitř containeru.<br>
 Můžeš mít jednu image a více současně běžících containerů z ní<br>.
+
+
+
+```
+docker ps   # vylistuj contejnery 
+
+docker stop fedora # STOP bud podle jmena stopni , nebo podle cisla
+docker rm fedora  # smaz bud podle jmena stopni , nebo podle cisla
+```
