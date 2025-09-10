@@ -49,3 +49,19 @@ docker run  -it --rm fedora:38 bash  -fedora
 fedora:38 → image Fedora 38<br>
 bash → spustí shell uvnitř containeru<br>
 ```
+Pokud ale chceme na to tom dale pracovat , **aby se to nesmazalo co jsme instalovali**,  spustime Image spustime takto 
+```
+docker run  -it fedora:38 bash 
+```
+bez **--rm**
+<br><br>
+### pamatuj si...
+* Container = běžící instance image, změny uvnitř zůstávají.<br>
+* Image = samotný stav OS, který můžeš znovu spouštět.<br>
+* Smazání probíhá jen explicitně, jinak všechno zůstává.<br>
+* Takže všechno, co jsi **buildnul a nainstaloval, se neztratí, dokud to nesmažeš ty.** <br>
+<br>
+Image = předloha (neměnná)<br>
+Container = běžící „kopie“ image, kde můžeš experimentovat<br>
+Pokud container ukončíš bez --rm, změny zůstanou uvnitř containeru.<br>
+Můžeš mít jednu image a více současně běžících containerů z ní<br>.
