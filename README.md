@@ -4,8 +4,9 @@ Toto repo se bude postupne rozsirovat , o jednotlive "vychytanky" o Dockeru
 Repo obsahuje jednoduché playgroundy pro různé Linux OS.
 
 ## Každá složka obsahuje:
-- Dockerfile (může být prázdný, jen základní OS)
+- Dockerfile ( zakladni OS  , nebo nejakou vychytavku napr. asciiaquarium)
 - run.sh – spustí interaktivní shell v příslušném OS
+  *  nebo navod jak  spustit dany image
 
 ## Spuštění obecne:
 ```bash
