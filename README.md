@@ -61,7 +61,7 @@ bez **--rm**
 * Smazání probíhá jen explicitně, jinak všechno zůstává.<br>
 * Takže všechno, co jsi **buildnul a nainstaloval, se neztratí, dokud to nesmažeš ty.** <br>
 <br>
----- Jinak receno ----
+---- Jinak receno ----<br>
 Image = předloha (neměnná)<br>
 Container = běžící „kopie“ image, kde můžeš experimentovat<br>
 Pokud container ukončíš bez --rm, změny zůstanou uvnitř containeru.<br>
