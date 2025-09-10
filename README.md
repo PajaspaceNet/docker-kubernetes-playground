@@ -18,4 +18,11 @@ Podporované OS:
 - Fedora 38
 - Alpine 3.18
 
+docker build -t debian_playground ./debian_playground
+docker build -t ubuntu_playground ./ubuntu_playground
+docker build -t fedora_playground ./fedora_playground
+docker build -t alpine_playground ./alpine_playground
 
+
+
+docker run -it --rm debian_playground bash
