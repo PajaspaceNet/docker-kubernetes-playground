@@ -77,10 +77,12 @@ Pokud container ukončíš bez --rm, změny zůstanou uvnitř containeru.<br>
 Můžeš mít jednu image a více současně běžících containerů z ní<br>.
 
 
-
+**RESTART** stejneho kontejneru kdyz se to nepovede a chces to uplne znova 
 ```
 docker ps   # vylistuj contejnery 
 
-docker stop fedora # STOP bud podle jmena stopni , nebo podle cisla
-docker rm fedora  # smaz bud podle jmena stopni , nebo podle cisla
+* docker stop <container> → zastaví běžící container
+* docker rm <container> → smaže container
+* docker build -t <image> <folder> → rebuild image
+* docker run -it <image> bash → spustíš nový container
 ```
