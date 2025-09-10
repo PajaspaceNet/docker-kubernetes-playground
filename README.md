@@ -65,8 +65,8 @@ bez **--rm**
 ```
 docker ps   # vylistuj contejnery 
 
-docker stop fedora # STOP bud podle jmena stopni , nebo podle cisla
-docker rm fedora  # smaz bud podle jmena stopni , nebo podle cisla
+docker stop <container> # STOP bud podle jmena stopni , nebo podle cisla
+docker rm <container>  # smaz bud podle jmena stopni , nebo podle cisla
 ```
 
 <br>
