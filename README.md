@@ -78,7 +78,8 @@ docker stop <container> # STOP bud podle jmena stopni , nebo podle cisla
 docker rm <container>  # smaz bud podle jmena stopni , nebo podle cisla
 ```
 
-**RESTART** stejneho kontejneru kdyz se to nepovede a chces to uplne znova 
+**RESTART**
+stejneho kontejneru kdyz se to nepovede a chces to uplne znova 
 ```
 docker ps   # vylistuj contejnery 
 
