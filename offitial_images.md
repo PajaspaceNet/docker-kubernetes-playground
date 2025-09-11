@@ -20,6 +20,10 @@ Pro produkty od Microsoftu, jako je .NET, jsou k dispozici oficiální obrazy na
 [Microsoft](https://mcr.microsoft.com/)
 
 
+I highly recommend visiting my forked repo<br>
+[Awesome-compose](https://github.com/PajaspaceNet/awesome-compose)
+
+
 
 
 
