@@ -1,7 +1,8 @@
 # docker-playground-experiment
 Toto repo se bude postupne rozsirovat , o jednotlive "vychytanky" o Dockeru
 
-Repo obsahuje jednoduché playgroundy pro různé Linux OS.
+* Repo obsahuje jednoduché playgroundy pro různé Linux OS.
+* Repo obsahuje odkazy na officialni zdroje imigu 
 
 ## Každá složka obsahuje:
 - Dockerfile ( zakladni OS  , nebo nejakou vychytavku napr. asciiaquarium)
