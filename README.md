@@ -2,7 +2,8 @@
 Toto repo se bude postupne rozsirovat , o jednotlive "vychytanky" o Dockeru
 
 * Repo obsahuje jednoduché playgroundy pro různé Linux OS.
-* Repo obsahuje odkazy na officialni zdroje imigu 
+* Repo obsahuje odkazy na officialni zdroje imigu
+* Repo obsahuje cheet sheets na praci s Dockerem
 
 ## Každá složka obsahuje:
 - Dockerfile ( zakladni OS  , nebo nejakou vychytavku napr. asciiaquarium)
