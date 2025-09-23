@@ -1,5 +1,5 @@
 # docker-playground-experiment
-Toto repo se bude postupne rozsirovat , o jednotlive "vychytanky" o Dockeru
+Toto repo se bude postupne rozsirovat , o jednotlive "vychytanky" o Dockeru a Kubernetes
 
 * Repo obsahuje jednoduché playgroundy pro různé Linux OS.
 * Repo obsahuje odkazy na officialni zdroje imigu
