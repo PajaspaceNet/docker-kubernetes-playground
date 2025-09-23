@@ -38,29 +38,30 @@ Tady je návrh:
 
 Nejdříve si vytvoříme jednoduchý `Deployment` s nastavenými resource requests/limits:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
+```
+apiVersion: apps/v1              # Používáme API verzi pro Deployment (apps/v1 je stabilní)
+kind: Deployment                 # Typ objektu = Deployment
 metadata:
-  name: myapp
+  name: myapp                    # Jméno Deploymentu (unikátní v namespacu)
 spec:
-  replicas: 2
-  selector:
+  replicas: 2                    # Počet podů, které se mají spustit
+  selector:                      # Jak Kubernetes pozná, které pody patří k tomuto Deploymentu
     matchLabels:
-      app: myapp
-  template:
+      app: myapp                 # Label, podle kterého se vybírají pody
+  template:                      # Šablona, podle které se budou vytvářet pody
     metadata:
       labels:
-        app: myapp
+        app: myapp               # Stejný label, aby seděl se selectorem
     spec:
       containers:
-        - name: myapp
-          image: myrepo/myapp:latest
-          resources:
-            requests:
-              cpu: 100m
-            limits:
-              cpu: 500m
+        - name: myapp            # Název kontejneru
+          image: myrepo/myapp:latest   # Docker image aplikace
+          resources:             # Omezení a požadavky na zdroje
+            requests:            # Minimum, které kontejner potřebuje
+              cpu: 100m          # 100 milicores (0.1 CPU)
+            limits:              # Maximum, které kontejner může spotřebovat
+              cpu: 500m          # 500 milicores (0.5 CPU)
+
 ````
 
 > ⚠️ Bez `resources.requests.cpu` nebude HPA fungovat.
