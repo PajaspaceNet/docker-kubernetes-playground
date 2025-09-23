@@ -14,7 +14,10 @@ Tímto nastavíš, že Deployment má běžet na 3 replikách (Podách).
 
 ## 🔹 Automatické škálování (HPA – Horizontal Pod Autoscaler)
 
-Pro nastavení automatického škálování podle CPU:
+Sleduje metriku (nejčastěji CPU nebo paměť, případně vlastní metriky přes Prometheus/Custom Metrics API).<br>
+Když průměrné využití přesáhne nastavený práh, HPA zvýší počet podů.<br>
+Když zatížení klesne, počet podů zase sníží.<br>
+Pro nastavení automatického škálování podle CPU:<br>
 
 ```bash
 kubectl autoscale deployment <name> --min=2 --max=10 --cpu-percent=80
