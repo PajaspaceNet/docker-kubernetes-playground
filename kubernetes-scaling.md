@@ -86,25 +86,25 @@ kubectl autoscale deployment myapp --cpu-percent=70 --min=2 --max=10
 
 Pokud chceš HPA spravovat přes GitOps nebo verzovat v Gitu, vytvoř si manifest:
 
-```yaml
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2       # Používáme API verzi pro HPA (v2 umožňuje více typů metrik)
+kind: HorizontalPodAutoscaler    # Typ objektu = HPA
 metadata:
-  name: myapp-hpa
+  name: myapp-hpa                # Jméno HPA objektu (unikátní v namespacu)
 spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: myapp
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-    - type: Resource
+  scaleTargetRef:                # Na co se má HPA vztahovat
+    apiVersion: apps/v1          # API verze cílového objektu
+    kind: Deployment             # Cíl je Deployment
+    name: myapp                  # Název Deploymentu, který chceme škálovat
+  minReplicas: 2                 # Minimální počet podů (nikdy nesníží pod 2)
+  maxReplicas: 10                # Maximální počet podů (nikdy nepřekročí 10)
+  metrics:                       # Definice metrik, podle kterých se škáluje
+    - type: Resource             # Typ metriky = zdroje (CPU, paměť)
       resource:
-        name: cpu
+        name: cpu                # Sledujeme CPU
         target:
-          type: Utilization
-          averageUtilization: 70
+          type: Utilization      # Typ cíle = průměrné využití (%)
+          averageUtilization: 70 # Cíl = průměrné CPU využití 70 %
+
 ```
 
 Aplikuj ho:
