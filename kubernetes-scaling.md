@@ -27,11 +27,8 @@ kubectl autoscale deployment <name> --min=2 --max=10 --cpu-percent=80
 * `--max` = maximální počet Podů
 * `--cpu-percent` = když průměrné CPU přesáhne hodnotu (např. 80 %), přidají se repliky
 ---
-Jasně 👍, můžu ti připravit Markdown (`.md`) dokument, který bude jako malý návod s ukázkami.
 
-Tady je návrh:
 
-````markdown
 # Kubernetes HPA – Příklad použití
 
 ## 1. Deployment aplikace
@@ -65,7 +62,7 @@ spec:
 ````
 
 > ⚠️ Bez `resources.requests.cpu` nebude HPA fungovat.
-
+Co to je ... viz nize 
 ---
 
 ## 2. Vytvoření HPA (příkazem)
@@ -85,7 +82,7 @@ kubectl autoscale deployment myapp --cpu-percent=70 --min=2 --max=10
 ## 3. Vytvoření HPA (YAML)
 
 Pokud chceš HPA spravovat přes GitOps nebo verzovat v Gitu, vytvoř si manifest:
-
+```
 apiVersion: autoscaling/v2       # Používáme API verzi pro HPA (v2 umožňuje více typů metrik)
 kind: HorizontalPodAutoscaler    # Typ objektu = HPA
 metadata:
@@ -130,7 +127,45 @@ NAME        REFERENCE          TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 myapp-hpa   Deployment/myapp   55%/70%    2         10        2          3m
 ```
 
+
+
+
+👉 **HPA potřebuje vědět, jaký je “základ” pro výpočet CPU využití.**
+
+* HPA pro CPU sleduje metriky z **metrics-serveru** (průměrné vytížení CPU podů).
+* Aby ale mohl spočítat **% využití**, musí mít referenci – a tou je právě `resources.requests.cpu`.
+
 ---
+### A ted .... Co to je ⚠️ Bez `resources.requests.cpu` nebude HPA fungovat. ???
+
+* `requests.cpu` = základ, vůči kterému HPA počítá procenta.
+* `limits.cpu` = maximální hranice, kterou kontejner nesmí překročit (není pro HPA nutná, ale je dobrá praxe).
+
+### Příklad
+
+
+Pokud máš v podu:
+
+```yaml
+resources:
+  requests:
+    cpu: 100m   # říkám: tento kontejner “potřebuje” 0.1 CPU
+```
+
+a aplikace běží na **50m CPU**, pak Kubernetes řekne:
+👉 využití = 50m / 100m = **50 %**.
+
+Když nastavíš v HPA `averageUtilization: 70`, bude škálovat podle toho, jestli je to nad/pod **70 % requestu**.
+
+---
+
+### Co když `requests.cpu` chybí?
+
+* Kubernetes **neví, k čemu se vztáhnout**, takže HPA pro CPU autoscaling nebude fungovat.
+* V lepším případě bude ukazovat prázdné metriky, v horším se nespustí vůbec.
+
+---
+
 
 ## 📌 Shrnutí
 * **Manuální škálování** = vhodné při testování nebo když víš, že potřebuješ přesně X instancí.
